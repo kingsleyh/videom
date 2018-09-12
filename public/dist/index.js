@@ -2525,7 +2525,7 @@ class $Main extends Component {
   }
 
   renderVideo(video) {
-    let url = `http://localhost:3000/uploads/` + video
+    let url = `http://localhost:8000/uploads/` + video
 
     return _createElement("tr", {}, [_createElement("td", {}, [video]), _createElement("td", {}, [_createElement("a", {
       "href": url

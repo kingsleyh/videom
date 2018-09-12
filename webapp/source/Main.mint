@@ -129,7 +129,7 @@ component Main {
      </td>
     </tr>
   } where {
-    url = "http://localhost:3000/uploads/" + video
+    url = "http://localhost:8000/uploads/" + video
   }
 
   fun renderVideos : Html {

@@ -2,7 +2,7 @@ require "kemal"
 require "json"
 
 get "/" do |env|
-  "woop"
+  "go to dist/index.html"
 end
 
 post "/api/upload" do |env|
