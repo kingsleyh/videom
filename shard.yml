@@ -1,0 +1,17 @@
+name: videom
+version: 0.1.0
+
+authors:
+  - Kingsley Hendrickse <kingsley.hendrickse@gmail.com>
+
+targets:
+  videom:
+    main: src/videom.cr
+
+crystal: 0.26.1
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
