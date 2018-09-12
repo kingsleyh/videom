@@ -2257,6 +2257,10 @@ class $Main extends Component {
     })
   }
 
+  get baseUrl() {
+    return `http://localhost:3000`
+  }
+
   get getVideos() {
     return (async () => {
       let _result = null;
@@ -2264,7 +2268,7 @@ class $Main extends Component {
       try {
         let response = await (async () => {
         try {
-          return await $Http.send($Http.get(`http://localhost:3000/api/all`))
+          return await $Http.send($Http.get(this.baseUrl + `/api/all`))
         } catch (_error) {
           let er = _error;
 
@@ -2353,7 +2357,7 @@ class $Main extends Component {
       try {
         let response = await (async () => {
         try {
-          return await $Http.send($Http.get(`http://localhost:3000/api/del/` + video))
+          return await $Http.send($Http.get(this.baseUrl + `/api/del/` + video))
         } catch (_error) {
           let er = _error;
 
@@ -2475,7 +2479,7 @@ class $Main extends Component {
       try {
         let response = await (async () => {
         try {
-          return await $Http.send($Http.formDataBody(formData, $Http.post(`http://localhost:3000/api/upload`)))
+          return await $Http.send($Http.formDataBody(formData, $Http.post(this.baseUrl + `/api/upload`)))
         } catch (_error) {
           let er = _error;
 
@@ -2525,7 +2529,7 @@ class $Main extends Component {
   }
 
   renderVideo(video) {
-    let url = `http://localhost:8000/uploads/` + video
+    let url = this.baseUrl + `/uploads/` + video
 
     return _createElement("tr", {}, [_createElement("td", {}, [video]), _createElement("td", {}, [_createElement("a", {
       "href": url

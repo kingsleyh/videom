@@ -12,6 +12,10 @@ component Main {
   state error : String = ""
   state message : Message = {message = ""}
 
+   get baseUrl : String {
+    "http://localhost:3000"
+   }
+
    fun componentDidMount : Promise(Never, Void) {
       getVideos
    }
@@ -19,7 +23,7 @@ component Main {
    get getVideos : Promise(Never, Void) {
      sequence {
        response =
-         "http://localhost:3000/api/all"
+         baseUrl + "/api/all"
          |> Http.get()
          |> Http.send()
 
@@ -41,7 +45,7 @@ component Main {
    fun delVideo(video : String) : Promise(Never, Void) {
      sequence {
        response =
-         "http://localhost:3000/api/del/" + video
+         baseUrl + "/api/del/" + video
          |> Http.get()
          |> Http.send()
 
@@ -84,7 +88,7 @@ component Main {
   fun upload : Promise(Never, Void) {
     sequence {
       response =
-        "http://localhost:3000/api/upload"
+        baseUrl + "/api/upload"
         |> Http.post()
         |> Http.formDataBody(formData)
         |> Http.send()
@@ -129,7 +133,7 @@ component Main {
      </td>
     </tr>
   } where {
-    url = "http://localhost:8000/uploads/" + video
+    url = baseUrl + "/uploads/" + video
   }
 
   fun renderVideos : Html {
