@@ -1,27 +1,28 @@
 # videom
 
-TODO: Write a description here
+### Docker stuff
 
-## Installation
+* build images
 
-TODO: Write installation instructions here
+    cd docker/api && docker build -t videom-api .
+    cd docker/app && docker build -t videom-app .
 
-## Usage
+* push to dockerhub
 
-TODO: Write usage instructions here
+    docker login --user=username
+    docker images
+    docker tag imageId username/videom-api:latest   
+    docker tag imageId username/videom-app:latest
 
-## Development
+    docker push username/videom-api   
+    docker push username/videom-app   
 
-TODO: Write development instructions here
+* pull from dockerhub
 
-## Contributing
+    docker pull username/videom-api
+    docker pull username/videom-app
 
-1. Fork it (<https://github.com/your-github-user/videom/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+* run
 
-## Contributors
-
-- [your-github-user](https://github.com/your-github-user) Kingsley Hendrickse - creator, maintainer
+    docker run -p 3000:3000 -v ~/videos:/root/videom/public/uploads -d username/videom-api
+    docker run -p 8000:8000 -d username/videom-api
