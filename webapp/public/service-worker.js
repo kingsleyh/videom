@@ -1,4 +1,4 @@
-const CACHE = '33e1428c767b8344a878c7da5e736dd1558dedd1d5ec73d7eda1626bb3b299cd';
+const CACHE = 'c193f5b0c649634cc0a6c71c3a866edc429b99ce761c156e2dfebf34b5c02d25';
 const RUNTIME = 'runtime';
 const PRECACHE_URLS = ['/icon-76x76.png',
 '/icon-192x192.png',
@@ -14,8 +14,10 @@ const PRECACHE_URLS = ['/icon-76x76.png',
 '/icon-152x152.png',
 '/index.js',
 '/icon-48x48.png',
+'/server.sh',
 '/manifest.json',
 '/icon-512x512.png',
+'/service-worker.js',
 '/icon-144x144.png',
 '/icon-167x167.png',
 '/icon-196x196.png',

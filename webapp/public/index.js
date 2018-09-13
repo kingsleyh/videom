@@ -2258,7 +2258,7 @@ class $Main extends Component {
   }
 
   get baseUrl() {
-    return `http://localhost:3000`
+    return `http://180.37.194.116:3000`
   }
 
   get getVideos() {
