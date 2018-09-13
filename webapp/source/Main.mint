@@ -13,7 +13,7 @@ component Main {
   state message : Message = {message = ""}
 
    get baseUrl : String {
-    "http://localhost:3000"
+    "http://180.37.194.116:3000"
    }
 
    fun componentDidMount : Promise(Never, Void) {
