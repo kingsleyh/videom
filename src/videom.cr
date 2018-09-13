@@ -1,12 +1,16 @@
 require "kemal"
 require "json"
 
-get "/" do |env|
-  "go to dist/index.html"
+before_all do |context|
+  context.response.content_type = "application/json"
+  context.response.headers.add("Access-Control-Allow-Origin", "*")
+end
+
+get "/" do |context|
+  "all good"
 end
 
 post "/api/upload" do |env|
-  env.response.headers.add("Access-Control-Allow-Origin", "*")
   HTTP::FormData.parse(env.request) do |upload|
     filename = upload.filename
     if !filename.is_a?(String)
@@ -22,8 +26,6 @@ post "/api/upload" do |env|
 end
 
 get "/api/all" do |env|
-  env.response.headers.add("Access-Control-Allow-Origin", "*")
-  env.response.content_type = "application/json"
   file_path = ::File.join [Kemal.config.public_folder, "uploads/"]
   vids = ["mp4","m4a","m4v", "f4v", "f4a", "m4b", "m4r", "f4b", "mov","3gp","3gp2","3g2","3gpp","3gpp2","ogg","oga","ogv","ogx","wmv","wma","asf","flv","avi","wav"].map{|e| ".#{e}"}
   command = "ls -al " + file_path
@@ -41,8 +43,6 @@ get "/api/all" do |env|
 end
 
 get "/api/del/:filename" do |env|
-  env.response.headers.add("Access-Control-Allow-Origin", "*")
-  env.response.content_type = "application/json"
   filename = env.params.url["filename"]
   file_path = ::File.join [Kemal.config.public_folder, "uploads/", filename]
   if File.exists?(file_path)
@@ -56,7 +56,4 @@ get "/api/del/:filename" do |env|
  end
 end
 
-
-
 Kemal.run
-# curl -F 'filename=@/path/to/hello.txt' http://localhost:3000/upload

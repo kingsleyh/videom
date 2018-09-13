@@ -17,7 +17,7 @@ component Main {
    }
 
    fun componentDidMount : Promise(Never, Void) {
-      getVideos
+        getVideos
    }
 
    get getVideos : Promise(Never, Void) {
