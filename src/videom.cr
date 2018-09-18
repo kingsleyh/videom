@@ -7,7 +7,8 @@ before_all do |context|
 end
 
 get "/" do |context|
-  "all good"
+  context.response.content_type = "text/html"
+  File.read(File.join("public", "index.html"))
 end
 
 post "/api/upload" do |env|
